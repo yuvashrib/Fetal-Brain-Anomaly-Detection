@@ -1,5 +1,5 @@
 # The data set was obtained from the below link
-## Fetal Brain Abnormalities Ultrasound > 2023-10-20 10:47pm
+## Fetal Brain Abnormalities Ultrasound
 https://universe.roboflow.com/hritwik-trivedi-gkgrv/fetal-brain-abnormalities-ultrasound
 
 Provided by a Roboflow user
