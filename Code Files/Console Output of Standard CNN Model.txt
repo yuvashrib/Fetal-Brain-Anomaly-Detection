@@ -1,0 +1,218 @@
+Label mapping:
+{0: 'anold-chiari-malformation', 1: 'arachnoid-cyst', 2: 'cerebellah-hypoplasia', 3: 'colphocephaly', 4: 'encephalocele', 5: 'holoprosencephaly', 6: 'hydracenphaly', 7: 'intracranial-hemorrdge', 8: 'intracranial-tumor', 9: 'm-magna', 10: 'mild-ventriculomegaly', 11: 'moderate-ventriculomegaly', 12: 'normal', 13: 'polencephaly', 14: 'severe-ventriculomegaly', 15: 'vein-of-galen'}
+Class distribution before duplication:
+                   Label Name  Count
+0   moderate-ventriculomegaly    314
+1                      normal    282
+2       mild-ventriculomegaly    246
+3               encephalocele    145
+4              arachnoid-cyst    139
+5       cerebellah-hypoplasia    129
+6     severe-ventriculomegaly    126
+7                polencephaly     98
+8               colphocephaly     89
+9      intracranial-hemorrdge     58
+10  anold-chiari-malformation     49
+11                    m-magna     38
+12              hydracenphaly     20
+13         intracranial-tumor     14
+14          holoprosencephaly     12
+15              vein-of-galen      5
+Class distribution after duplication:
+                   Label Name  Count
+0   moderate-ventriculomegaly    314
+1                      normal    282
+2       mild-ventriculomegaly    246
+3               encephalocele    145
+4              arachnoid-cyst    139
+5       cerebellah-hypoplasia    129
+6     severe-ventriculomegaly    126
+7                polencephaly     98
+8               colphocephaly     89
+9      intracranial-hemorrdge     58
+10  anold-chiari-malformation     50
+11                    m-magna     50
+12          holoprosencephaly     50
+13              hydracenphaly     50
+14              vein-of-galen     50
+15         intracranial-tumor     50
+No. of in the training set: 1540
+No. of images in  the validation set: 193
+No. of images in  the test set: 193
+
+ 
+Important
+Figures are displayed in the Plots pane by default. To make them also appear inline in the console, you need to uncheck "Mute inline plotting" under the options menu of Plots.
+ Class distribution after augmentation:
+                   Label Name  Count
+0   moderate-ventriculomegaly   5271
+1                      normal   4746
+2       mild-ventriculomegaly   4137
+3               colphocephaly   3621
+4               encephalocele   3596
+5              arachnoid-cyst   3441
+6      intracranial-hemorrdge   3266
+7                     m-magna   3240
+8               hydracenphaly   3240
+9   anold-chiari-malformation   3240
+10          holoprosencephaly   3240
+11              vein-of-galen   3240
+12         intracranial-tumor   3240
+13               polencephaly   3198
+14      cerebellah-hypoplasia   3193
+15    severe-ventriculomegaly   3131
+Model: "functional"
+┌─────────────────────────────────┬────────────────────────┬───────────────┐
+│ Layer (type)                    │ Output Shape           │       Param # │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ input_layer (InputLayer)        │ (None, 64, 64, 1)      │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ conv2d (Conv2D)                 │ (None, 64, 64, 64)     │           640 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ re_lu (ReLU)                    │ (None, 64, 64, 64)     │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling2d (MaxPooling2D)    │ (None, 32, 32, 64)     │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ batch_normalization             │ (None, 32, 32, 64)     │           256 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout (Dropout)               │ (None, 32, 32, 64)     │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ conv2d_1 (Conv2D)               │ (None, 32, 32, 128)    │        73,856 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ re_lu_1 (ReLU)                  │ (None, 32, 32, 128)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling2d_1 (MaxPooling2D)  │ (None, 16, 16, 128)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ batch_normalization_1           │ (None, 16, 16, 128)    │           512 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout_1 (Dropout)             │ (None, 16, 16, 128)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ conv2d_2 (Conv2D)               │ (None, 16, 16, 256)    │       295,168 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ re_lu_2 (ReLU)                  │ (None, 16, 16, 256)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling2d_2 (MaxPooling2D)  │ (None, 8, 8, 256)      │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ batch_normalization_2           │ (None, 8, 8, 256)      │         1,024 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout_2 (Dropout)             │ (None, 8, 8, 256)      │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ conv2d_3 (Conv2D)               │ (None, 8, 8, 512)      │     1,180,160 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ re_lu_3 (ReLU)                  │ (None, 8, 8, 512)      │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling2d_3 (MaxPooling2D)  │ (None, 4, 4, 512)      │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout_3 (Dropout)             │ (None, 4, 4, 512)      │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ flatten (Flatten)               │ (None, 8192)           │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense (Dense)                   │ (None, 2048)           │    16,779,264 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ re_lu_4 (ReLU)                  │ (None, 2048)           │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_1 (Dense)                 │ (None, 1024)           │     2,098,176 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ re_lu_5 (ReLU)                  │ (None, 1024)           │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_2 (Dense)                 │ (None, 512)            │       524,800 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ re_lu_6 (ReLU)                  │ (None, 512)            │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_3 (Dense)                 │ (None, 16)             │         8,208 │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+ Total params: 20,962,064 (79.96 MB)
+ Trainable params: 20,961,168 (79.96 MB)
+ Non-trainable params: 896 (3.50 KB)
+Epoch 1/50
+C:\Users\yuvas\anaconda3\Lib\site-packages\keras\src\trainers\data_adapters\py_dataset_adapter.py:121: UserWarning: Your `PyDataset` class should call `super().__init__(**kwargs)` in its constructor. `**kwargs` can include `workers`, `use_multiprocessing`, `max_queue_size`. Do not pass these arguments to `fit()`, as they will be ignored.
+  self._warn_if_super_not_called()
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 547s 305ms/step - accuracy: 0.2070 - loss: 3.1511 - val_accuracy: 0.2953 - val_loss: 2.5455 - learning_rate: 0.0010
+Epoch 2/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 553s 310ms/step - accuracy: 0.4556 - loss: 1.6386 - val_accuracy: 0.4819 - val_loss: 1.8365 - learning_rate: 0.0010
+Epoch 3/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 567s 318ms/step - accuracy: 0.5711 - loss: 1.2651 - val_accuracy: 0.4560 - val_loss: 2.1729 - learning_rate: 0.0010
+Epoch 4/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 589s 330ms/step - accuracy: 0.6337 - loss: 1.0612 - val_accuracy: 0.6425 - val_loss: 1.2736 - learning_rate: 0.0010
+Epoch 5/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 569s 319ms/step - accuracy: 0.6824 - loss: 0.9179 - val_accuracy: 0.6010 - val_loss: 1.4628 - learning_rate: 0.0010
+Epoch 6/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 569s 319ms/step - accuracy: 0.7193 - loss: 0.8118 - val_accuracy: 0.6269 - val_loss: 1.4957 - learning_rate: 0.0010
+Epoch 7/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 573s 321ms/step - accuracy: 0.7446 - loss: 0.7401 - val_accuracy: 0.5751 - val_loss: 1.5449 - learning_rate: 0.0010
+Epoch 8/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 572s 321ms/step - accuracy: 0.7585 - loss: 0.7034 - val_accuracy: 0.6373 - val_loss: 1.4324 - learning_rate: 0.0010
+Epoch 9/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 585s 328ms/step - accuracy: 0.7778 - loss: 0.6458 - val_accuracy: 0.6995 - val_loss: 1.1177 - learning_rate: 0.0010
+Epoch 10/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 576s 323ms/step - accuracy: 0.7912 - loss: 0.6100 - val_accuracy: 0.6839 - val_loss: 1.7360 - learning_rate: 0.0010
+Epoch 11/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 548s 307ms/step - accuracy: 0.8005 - loss: 0.5781 - val_accuracy: 0.6114 - val_loss: 2.3424 - learning_rate: 0.0010
+Epoch 12/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 539s 302ms/step - accuracy: 0.8128 - loss: 0.5555 - val_accuracy: 0.7617 - val_loss: 0.9212 - learning_rate: 0.0010
+Epoch 13/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 563s 316ms/step - accuracy: 0.8197 - loss: 0.5293 - val_accuracy: 0.7409 - val_loss: 1.3939 - learning_rate: 0.0010
+Epoch 14/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 563s 316ms/step - accuracy: 0.8282 - loss: 0.5122 - val_accuracy: 0.7150 - val_loss: 1.3740 - learning_rate: 0.0010
+Epoch 15/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 588s 330ms/step - accuracy: 0.8336 - loss: 0.5047 - val_accuracy: 0.7409 - val_loss: 1.2490 - learning_rate: 0.0010
+Epoch 16/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 804s 451ms/step - accuracy: 0.8397 - loss: 0.4793 - val_accuracy: 0.7306 - val_loss: 1.0979 - learning_rate: 0.0010
+Epoch 17/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 805s 451ms/step - accuracy: 0.8446 - loss: 0.4775 - val_accuracy: 0.7824 - val_loss: 0.8174 - learning_rate: 0.0010
+Epoch 18/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 824s 462ms/step - accuracy: 0.8537 - loss: 0.4405 - val_accuracy: 0.7772 - val_loss: 0.9281 - learning_rate: 0.0010
+Epoch 19/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 822s 461ms/step - accuracy: 0.8591 - loss: 0.4242 - val_accuracy: 0.7409 - val_loss: 1.1128 - learning_rate: 0.0010
+Epoch 20/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 833s 467ms/step - accuracy: 0.8673 - loss: 0.3987 - val_accuracy: 0.7824 - val_loss: 0.8700 - learning_rate: 0.0010
+Epoch 21/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 798s 447ms/step - accuracy: 0.8708 - loss: 0.3940 - val_accuracy: 0.8187 - val_loss: 0.6350 - learning_rate: 0.0010
+Epoch 22/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 823s 461ms/step - accuracy: 0.8784 - loss: 0.3775 - val_accuracy: 0.7979 - val_loss: 0.8612 - learning_rate: 0.0010
+Epoch 23/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 698s 391ms/step - accuracy: 0.8775 - loss: 0.3757 - val_accuracy: 0.7824 - val_loss: 1.1391 - learning_rate: 0.0010
+Epoch 24/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 542s 304ms/step - accuracy: 0.8841 - loss: 0.3647 - val_accuracy: 0.7824 - val_loss: 0.9480 - learning_rate: 0.0010
+Epoch 25/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 552s 309ms/step - accuracy: 0.8873 - loss: 0.3475 - val_accuracy: 0.7979 - val_loss: 0.9693 - learning_rate: 0.0010
+Epoch 26/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 556s 312ms/step - accuracy: 0.8938 - loss: 0.3207 - val_accuracy: 0.7461 - val_loss: 1.2720 - learning_rate: 0.0010
+Epoch 27/50
+1783/1783 ━━━━━━━━━━━━━━━━━━━━ 570s 319ms/step - accuracy: 0.8957 - loss: 0.3255 - val_accuracy: 0.7824 - val_loss: 1.1398 - learning_rate: 0.0010
+7/7 - 0s - 56ms/step - accuracy: 0.8290 - loss: 0.5784
+Test accuracy: 0.8290155529975891
+7/7 ━━━━━━━━━━━━━━━━━━━━ 1s 78ms/step 
+Classification Report:
+                           precision    recall  f1-score   support
+
+anold-chiari-malformation       0.50      1.00      0.67         5
+           arachnoid-cyst       0.75      0.86      0.80        14
+    cerebellah-hypoplasia       0.79      0.85      0.81        13
+            colphocephaly       0.62      0.56      0.59         9
+            encephalocele       0.80      0.86      0.83        14
+        holoprosencephaly       1.00      1.00      1.00         5
+            hydracenphaly       1.00      1.00      1.00         5
+   intracranial-hemorrdge       1.00      0.67      0.80         6
+       intracranial-tumor       1.00      1.00      1.00         5
+                  m-magna       1.00      1.00      1.00         5
+    mild-ventriculomegaly       0.77      0.83      0.80        24
+moderate-ventriculomegaly       0.89      0.78      0.83        32
+                   normal       0.96      0.86      0.91        28
+             polencephaly       0.70      0.70      0.70        10
+  severe-ventriculomegaly       0.83      0.77      0.80        13
+            vein-of-galen       1.00      1.00      1.00         5
+
+                 accuracy                           0.83       193
+                macro avg       0.85      0.86      0.85       193
+             weighted avg       0.84      0.83      0.83       193
+
+Unique predicted labels: [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+Unique true labels: [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+Precision: 0.8434486325418968
+Recall: 0.8290155440414507
+F1 Score: 0.8312508171100563
+Accuracy Score: 0.8290155440414507
