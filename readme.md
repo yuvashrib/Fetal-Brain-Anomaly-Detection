@@ -1,7 +1,74 @@
-Identifying abnormalities in the prenatal brain is essential for timely diagnosis and improved prognosis results. In this project, a method for categorizing prenatal brain abnormalities utilizing Convolutional Neural Networks (CNNs) with Separable Convolution Layers is being proposed.
-In recent years, neural networks, especially CNNs, have achieved significant success in image classification tasks, thanks to large-scale labeled datasets and the strong representation abilities of deep neural networks.
-Using ultrasound data with 1,786 labeled images spanning various fetal brain anomalies—such as Arnold-Chiari malformation, arachnoid cyst, cerebellar hypoplasia, colpocephaly, encephalocele, holoprosencephaly, hydranencephaly, intracranial hemorrhage, intracranial tumor, mega cisterna magna, ventriculomegaly (mild, moderate, severe), vein of Galen anomaly, and normal cases—our goal is to develop accurate classification models.
+# Real-Time ECG Anomaly Detection Using Deep Neural Networks  
 
+This repository presents a deep learning-based system for detecting anomalies in ECG (electrocardiogram) data. The project focuses on real-time classification of heartbeats as either "normal" or "abnormal" using various deep learning models and real-time data processing. The system is designed to assist in early detection of cardiac anomalies, facilitating timely medical interventions.  
 
-To enhance fetal brain anomaly detection, we are exploring not only traditional CNNs but also the use of Separable Convolution Layers. These layers improve feature extraction and classification accuracy by breaking standard convolutions into more efficient depthwise and pointwise operations, boosting both computational efficiency and the model's ability to capture complex spatial relationships in fetal brain images. By fine-tuning pre-trained CNNs with added separable layers, we aim to optimize performance for the specific challenges of anomaly classification. Through comparison with traditional CNNs, we aim to demonstrate the superior accuracy, efficiency, and generalization of Separable CNNs, advancing medical imaging techniques in this field.
-This innovative approach shows great potential in advancing prenatal care by facilitating early and accurate detection and classification of fetal brain abnormalities.
+---
+
+## Project Objectives  
+
+1. **Data Preparation**  
+   - Load and preprocess ECG time series data from a publicly available dataset.  
+   - Handle missing values and format data to ensure consistency across all records.  
+   - Normalize data to improve model performance on multidimensional features.  
+
+2. **Exploratory Data Analysis (EDA)**  
+   - Visualize the ECG signals to understand patterns in normal and abnormal heartbeats.  
+   - Analyze data distribution and address imbalances between normal and anomalous samples.  
+
+3. **Model Development**  
+   - Develop and train four different deep learning models tailored for specific tasks:  
+     - **Model 1**: Classifies individual time instances of ECG data.  
+     - **Model 2**: Analyzes ECG data as a time series for sequence-based classification.  
+     - **Model 3**: Implements anomaly detection using an autoencoder to identify irregular patterns.  
+     - **Model 4**: Combines time series classification and anomaly detection for enhanced accuracy.  
+
+4. **Model Evaluation**  
+   - Assess model performance using key metrics such as accuracy, precision, recall, F1-score, and confusion matrix.  
+   - Perform a comparative analysis to identify the best-performing model for real-time anomaly detection.  
+
+5. **Real-Time Anomaly Detection**  
+   - Develop a Python-based system for processing and classifying real-time ECG data in intervals of 5 seconds.  
+   - Build an interactive web or mobile application to visualize detection results and notify users in case of anomalies.  
+
+---
+
+## Dataset  
+
+The project utilizes a publicly available ECG dataset that contains labeled time series data for normal and abnormal heartbeats. The dataset includes features such as heartbeat rhythm, signal amplitude, and timing intervals.  
+- [ECG Dataset Documentation](https://www.physionet.org/)  
+
+---
+
+## Implementation  
+
+The implementation is divided into the following key stages:  
+
+1. **Data Ingestion and Preprocessing**  
+   - Load the dataset and perform necessary preprocessing steps.  
+   - Normalize the ECG signals and split the data into training, validation, and test sets.  
+
+2. **Model Training**  
+   - Train each model using TensorFlow/Keras frameworks with appropriate hyperparameter tuning.  
+   - Monitor training using early stopping and validation loss metrics to prevent overfitting.  
+
+3. **Model Testing and Evaluation**  
+   - Evaluate models on the test dataset using classification metrics and compare performance.  
+
+4. **Deployment**  
+   - Deploy the best-performing model as a REST API for real-time anomaly detection.  
+   - Integrate the API into an interactive application for end-user accessibility.  
+
+---
+
+## Tools and Technologies  
+
+- **Frameworks**: TensorFlow, Keras  
+- **Programming Language**: Python  
+- **Visualization**: Matplotlib, Seaborn  
+- **Deployment**: Flask or FastAPI, Streamlit for the interactive interface  
+
+---
+
+## Key Takeaways  
+
+This project demonstrates the potential of deep learning in real-time ECG anomaly detection. By leveraging multiple models and comparing their effectiveness, it provides insights into the best practices for processing and analyzing time series data in critical healthcare applications.  
